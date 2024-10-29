@@ -1,7 +1,9 @@
 import OpenAI from 'openai';
 
 export async function GET(request: Request) {
-    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+    const apiKey = process.env.OPENAI_API_KEY
+
+    const openai = new OpenAI({ apiKey });
 
     const responseStream = new ReadableStream({
         async start(controller) {
